@@ -6,11 +6,32 @@
         xmlns:local="clr-namespace:GFDirectTasksSolver"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="Решение прямых задач геофизики (Кузнецов Г.А. ГИН-20)" Height="700" Width="1200" ResizeMode="NoResize">
+        Title="Решение прямой задачи гравиразведки для уступа (Кузнецов Г.А. ГИН-20)" Height="730" Width="1550" ResizeMode="NoResize">
     <Window.DataContext>
         <local:MainWindowViewModel/>
     </Window.DataContext>
     <Grid>
-        <Label Margin="5,5,0,0" Height="32" Width="160" Content="Контент" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Canvas Margin="500,40,0,0" Height="350" Width="1000" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Canvas Margin="500,400,0,0" Height="250" Width="1000" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Rectangle Margin="500,40,0,0" Height="350" Width="1000" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="Black" />
+        <Rectangle Margin="500,400,0,0" Height="250" Width="1000" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="Black" />
+        
+        <Label Margin="10,40,0,0" Height="30" Width="140" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Панель сообщений:"/>
+        <TextBox Margin="10,75,0,0" Height="30" Width="420" HorizontalAlignment="Left" VerticalAlignment="Top" IsReadOnly="True"/>
+        
+        <Label Margin="10,120,0,0" Height="30" Width="231" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Глубина залегания нижней кромки:"/>
+        <TextBox Margin="10,155,0,0" Height="30" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Margin="250,120,0,0" Height="30" Width="217" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Глубина залегания верхней кромки:"/>
+        <TextBox Margin="250,155,0,0" Height="30" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        
+        <Label Margin="10,200,0,0" Height="30" Width="231" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Плотность вмещающих пород:"/>
+        <TextBox Margin="10,235,0,0" Height="30" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Margin="250,200,0,0" Height="30" Width="217" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Плотность пород уступа:"/>
+        <TextBox Margin="250,235,0,0" Height="30" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <Label Margin="10,280,0,0" Height="30" Width="370" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Расположение выступа относительно нулевой оси измерения:"/>
+        <TextBox Margin="10,315,0,0" Height="30" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        
+        <Button  Margin="10,385,0,0" Height="50" Width="210" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Рассчитать аномалию над уступом"/>
     </Grid>
 </Window>

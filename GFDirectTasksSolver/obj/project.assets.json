@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\codes\\C#\\Основы ММ в недропользовании КР\\GFTasksSolver\\GFDirectTasksSolver\\GFDirectTasksSolver.csproj",
-      "projectName": "GFDirectTasksSolver",
-      "projectPath": "D:\\codes\\C#\\Основы ММ в недропользовании КР\\GFTasksSolver\\GFDirectTasksSolver\\GFDirectTasksSolver.csproj",
+      "projectUniqueName": "D:\\codes\\C#\\Основы ММ в недропользовании КР\\GFTasksSolver\\GFDirectTasksSolver\\GFDirectTaskSolver.csproj",
+      "projectName": "GFDirectTaskSolver",
+      "projectPath": "D:\\codes\\C#\\Основы ММ в недропользовании КР\\GFTasksSolver\\GFDirectTasksSolver\\GFDirectTaskSolver.csproj",
       "packagesPath": "C:\\Users\\Joe\\.nuget\\packages\\",
       "outputPath": "D:\\codes\\C#\\Основы ММ в недропользовании КР\\GFTasksSolver\\GFDirectTasksSolver\\obj\\",
       "projectStyle": "PackageReference",
@@ -64,7 +64,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
