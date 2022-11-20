@@ -1,0 +1,14 @@
+D:\codes\C#\Основы ММ в недропользовании КР\GFTasksSolver\Core\bin\Debug\net5.0\Core.deps.json
+D:\codes\C#\Основы ММ в недропользовании КР\GFTasksSolver\Core\bin\Debug\net5.0\Core.dll
+D:\codes\C#\Основы ММ в недропользовании КР\GFTasksSolver\Core\bin\Debug\net5.0\Core.pdb
+D:\codes\C#\Основы ММ в недропользовании КР\GFTasksSolver\Core\bin\Debug\net5.0\PresentationCore.dll
+D:\codes\C#\Основы ММ в недропользовании КР\GFTasksSolver\Core\obj\Debug\net5.0\Core.csproj.AssemblyReference.cache
+D:\codes\C#\Основы ММ в недропользовании КР\GFTasksSolver\Core\obj\Debug\net5.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\codes\C#\Основы ММ в недропользовании КР\GFTasksSolver\Core\obj\Debug\net5.0\Core.AssemblyInfoInputs.cache
+D:\codes\C#\Основы ММ в недропользовании КР\GFTasksSolver\Core\obj\Debug\net5.0\Core.AssemblyInfo.cs
+D:\codes\C#\Основы ММ в недропользовании КР\GFTasksSolver\Core\obj\Debug\net5.0\Core.csproj.CoreCompileInputs.cache
+D:\codes\C#\Основы ММ в недропользовании КР\GFTasksSolver\Core\obj\Debug\net5.0\Core.csproj.CopyComplete
+D:\codes\C#\Основы ММ в недропользовании КР\GFTasksSolver\Core\obj\Debug\net5.0\Core.dll
+D:\codes\C#\Основы ММ в недропользовании КР\GFTasksSolver\Core\obj\Debug\net5.0\refint\Core.dll
+D:\codes\C#\Основы ММ в недропользовании КР\GFTasksSolver\Core\obj\Debug\net5.0\Core.pdb
+D:\codes\C#\Основы ММ в недропользовании КР\GFTasksSolver\Core\obj\Debug\net5.0\ref\Core.dll

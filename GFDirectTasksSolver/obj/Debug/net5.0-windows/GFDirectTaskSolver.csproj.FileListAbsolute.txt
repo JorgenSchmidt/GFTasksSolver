@@ -21,3 +21,6 @@ D:\codes\C#\Основы ММ в недропользовании КР\GFTasksSo
 D:\codes\C#\Основы ММ в недропользовании КР\GFTasksSolver\GFDirectTasksSolver\obj\Debug\net5.0-windows\GFDirectTaskSolver.pdb
 D:\codes\C#\Основы ММ в недропользовании КР\GFTasksSolver\GFDirectTasksSolver\obj\Debug\net5.0-windows\GFDirectTaskSolver.genruntimeconfig.cache
 D:\codes\C#\Основы ММ в недропользовании КР\GFTasksSolver\GFDirectTasksSolver\obj\Debug\net5.0-windows\ref\GFDirectTaskSolver.dll
+D:\codes\C#\Основы ММ в недропользовании КР\GFTasksSolver\GFDirectTasksSolver\bin\Debug\net5.0-windows\Core.dll
+D:\codes\C#\Основы ММ в недропользовании КР\GFTasksSolver\GFDirectTasksSolver\bin\Debug\net5.0-windows\Core.pdb
+D:\codes\C#\Основы ММ в недропользовании КР\GFTasksSolver\GFDirectTasksSolver\obj\Debug\net5.0-windows\GFDirectTaskSolver.csproj.CopyComplete

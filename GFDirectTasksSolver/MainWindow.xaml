@@ -4,34 +4,93 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GFDirectTasksSolver"
+        xmlns:core="clr-namespace:Core.Entities;assembly=Core"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="Решение прямой задачи гравиразведки для уступа (Кузнецов Г.А. ГИН-20)" Height="730" Width="1550" ResizeMode="NoResize">
+        Title="Решение прямой задачи гравиразведки для уступа" Height="750" Width="1550" ResizeMode="NoResize">
     <Window.DataContext>
         <local:MainWindowViewModel/>
     </Window.DataContext>
     <Grid>
-        <Canvas Margin="500,40,0,0" Height="350" Width="1000" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Canvas Margin="500,400,0,0" Height="250" Width="1000" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <!-- Элементы для обозначения границ графика аномалии и её отрисовки -->
         <Rectangle Margin="500,40,0,0" Height="350" Width="1000" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="Black" />
-        <Rectangle Margin="500,400,0,0" Height="250" Width="1000" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="Black" />
-        
-        <Label Margin="10,40,0,0" Height="30" Width="140" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Панель сообщений:"/>
-        <TextBox Margin="10,75,0,0" Height="30" Width="420" HorizontalAlignment="Left" VerticalAlignment="Top" IsReadOnly="True"/>
+        <Viewbox Stretch="Uniform" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="501,47,58,0">
+            <ItemsControl ItemsSource="{Binding AnomalyModelLines}" Width="1000" Height="350" >
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Canvas Background="#fff" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.Resources>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="Canvas.Left" Value="0" />
+                        <Setter Property="Canvas.Top" Value="0" />
+                    </Style>
+                    <!-- В DataTemplate прописываем путь к классу абстракции отрисовываемых линий -->
+                    <DataTemplate DataType="{x:Type core:Line}">
+                        <Line X1="{Binding X1}" X2="{Binding X2}" Y1="{Binding Y1}" Y2="{Binding Y2}" Stroke="{Binding Color}" StrokeThickness="1"/>
+                    </DataTemplate>
+                </ItemsControl.Resources>
+            </ItemsControl>
+        </Viewbox>
+
+        <!-- Элементы для обозначения границ модели среды и её отрисовки -->
+        <Rectangle Margin="500,420,0,0" Height="250" Width="1000" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="Black" />
+        <Viewbox Stretch="Uniform" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="501,421,58,0">
+            <ItemsControl ItemsSource="{Binding EnvironmentModelLines}" Width="1000" Height="250">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Canvas Background="#fff" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.Resources>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="Canvas.Left" Value="0" />
+                        <Setter Property="Canvas.Top" Value="0" />
+                    </Style>
+                    <DataTemplate DataType="{x:Type core:Line}">
+                        <Line X1="{Binding X1}" X2="{Binding X2}" Y1="{Binding Y1}" Y2="{Binding Y2}" Stroke="{Binding Color}" StrokeThickness="1"/>
+                    </DataTemplate>
+                </ItemsControl.Resources>
+            </ItemsControl>
+        </Viewbox>
+
+        <!-- Элементы для ввода параметров среды -->
+        <Label Margin="10,40,0,0" Height="30" Width="140" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Панель сообщений:" />
+        <TextBox Margin="10,75,0,0" Height="30" Width="420" HorizontalAlignment="Left" VerticalAlignment="Top" IsReadOnly="True" Text ="{Binding InfoPanel}"/>
         
         <Label Margin="10,120,0,0" Height="30" Width="231" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Глубина залегания нижней кромки:"/>
-        <TextBox Margin="10,155,0,0" Height="30" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox Margin="10,155,0,0" Height="30" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top" Text="{Binding DepthLowerEdge}"/>
         <Label Margin="250,120,0,0" Height="30" Width="217" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Глубина залегания верхней кромки:"/>
-        <TextBox Margin="250,155,0,0" Height="30" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox Margin="250,155,0,0" Height="30" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top" Text="{Binding DepthHigherEdge}"/>
         
         <Label Margin="10,200,0,0" Height="30" Width="231" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Плотность вмещающих пород:"/>
-        <TextBox Margin="10,235,0,0" Height="30" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox Margin="10,235,0,0" Height="30" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top" Text="{Binding HostRocksDensity}"/>
         <Label Margin="250,200,0,0" Height="30" Width="217" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Плотность пород уступа:"/>
-        <TextBox Margin="250,235,0,0" Height="30" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox Margin="250,235,0,0" Height="30" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top" Text="{Binding LedgeRocksDensity}"/>
 
         <Label Margin="10,280,0,0" Height="30" Width="370" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Расположение выступа относительно нулевой оси измерения:"/>
-        <TextBox Margin="10,315,0,0" Height="30" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        
-        <Button  Margin="10,385,0,0" Height="50" Width="210" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Рассчитать аномалию над уступом"/>
+        <TextBox Margin="10,315,0,0" Height="30" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top" Text="{Binding OverhangLocation}"/>
+
+        <!-- Элемент для запуска отрисовки графиков аномалии и модели среды -->
+        <Button  Margin="10,385,0,0" Height="50" Width="210" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Рассчитать аномалию над уступом" Command="{Binding CalculateAnomaly}"/>
+
+        <!-- Элементы для подписи графиков -->
+        <Label Margin="500,10,0,0" Height="30" Width="231" HorizontalAlignment="Left" VerticalAlignment="Top"  Content="dg, мГалл"/>
+        <Label Margin="480,40,0,0" Height="30" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top"  Content="{Binding dg_Max}" FontSize="8"/>
+        <Label Margin="480,205,0,0" Height="30" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top" Content="{Binding dg_Med}" FontSize="8"/>
+        <Label Margin="480,380,0,0" Height="30" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top" Content="0" FontSize="8"/>
+
+        <Label Margin="500,670,0,0" Height="30" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Z, м"/>
+        <Label Margin="480,410,0,0" Height="30" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top" Content="0" FontSize="8"/>
+        <Label Margin="480,535,0,0" Height="30" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top" Content="{Binding z_Med}" FontSize="8"/>
+        <Label Margin="480,660,0,0" Height="30" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top" Content="{Binding z_Max}" FontSize="8"/>
+
+        <Label Margin="1500,370,0,0" Height="30" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Х, м"/>
+        <Label Margin="1500,415,0,0" Height="30" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Х, м"/>
+        <Label Margin="1490,387,0,0" Height="30" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top" Content="{Binding x_Max}" FontSize="8"/>
+        <Label Margin="1490,403,0,0" Height="30" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top" Content="{Binding x_Max}" FontSize="8"/>
+        <Label Margin="1000,387,0,0" Height="30" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top" Content="{Binding x_Max}" FontSize="8"/>
+        <Label Margin="1000,403,0,0" Height="30" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top" Content="{Binding x_Max}" FontSize="8"/>
     </Grid>
 </Window>
