@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v5.0": {
       "GFDirectTaskSolver/1.0.0": {
         "dependencies": {
-          "Core": "1.0.0"
+          "Core": "1.0.0",
+          "Model": "1.0.0"
         },
         "runtime": {
           "GFDirectTaskSolver.dll": {}
@@ -17,6 +18,14 @@
       "Core/1.0.0": {
         "runtime": {
           "Core.dll": {}
+        }
+      },
+      "Model/1.0.0": {
+        "dependencies": {
+          "Core": "1.0.0"
+        },
+        "runtime": {
+          "Model.dll": {}
         }
       }
     }
@@ -28,6 +37,11 @@
       "sha512": ""
     },
     "Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Model/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

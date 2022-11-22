@@ -7,8 +7,25 @@
   "targets": {
     ".NETCoreApp,Version=v5.0": {
       "Model/1.0.0": {
+        "dependencies": {
+          "Core": "1.0.0",
+          "PresentationCore": "3.0.0.0"
+        },
         "runtime": {
           "Model.dll": {}
+        }
+      },
+      "Core/1.0.0": {
+        "runtime": {
+          "Core.dll": {}
+        }
+      },
+      "PresentationCore/3.0.0.0": {
+        "runtime": {
+          "PresentationCore.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.6920.5442"
+          }
         }
       }
     }
@@ -16,6 +33,16 @@
   "libraries": {
     "Model/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PresentationCore/3.0.0.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }

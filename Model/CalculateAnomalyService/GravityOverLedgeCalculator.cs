@@ -17,13 +17,13 @@ namespace Model.CalculateAnomalyService
                         decimal overhangLocation
             )
         {
-            return G*(ledgeRocksDensity - hostRocksDensity) * (PI*(depthLowerEdge - depthHigherEdge) 
-                + 2 * Convert.ToDecimal(Math.Atan(Convert.ToDouble((X - overhangLocation) / depthLowerEdge))) 
-                + 2 * Convert.ToDecimal(Math.Atan(Convert.ToDouble((X - overhangLocation) / depthHigherEdge)))
-                + (X - overhangLocation) * Convert.ToDecimal( Math.Log(Convert.ToDouble(
-                     ((X - overhangLocation) * (X - overhangLocation) + depthLowerEdge * depthLowerEdge)
+            return G*(ledgeRocksDensity - hostRocksDensity) * ( PI*(depthLowerEdge - depthHigherEdge) 
+                + 2 * depthLowerEdge * Convert.ToDecimal(Math.Atan(Convert.ToDouble((X - overhangLocation) / depthLowerEdge))) 
+                - 2 * depthHigherEdge * Convert.ToDecimal(Math.Atan(Convert.ToDouble((X - overhangLocation) / depthHigherEdge)))
+                + (X - overhangLocation) * Convert.ToDecimal ( Math.Log (Convert.ToDouble (
+                     ( (X - overhangLocation) * (X - overhangLocation) + depthLowerEdge * depthLowerEdge)
                      /
-                     ((X - overhangLocation) * (X - overhangLocation) + depthHigherEdge * depthHigherEdge)
+                     ( (X - overhangLocation) * (X - overhangLocation) + depthHigherEdge * depthHigherEdge)
                 )))
             );
         }

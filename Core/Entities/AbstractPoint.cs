@@ -1,8 +1,8 @@
 ﻿namespace Core.Entities
 {
-    public class AnomalyPoint
+    public class AbstractPoint
     {
         public decimal X;
-        public decimal dg;
+        public decimal Y;
     }
 }

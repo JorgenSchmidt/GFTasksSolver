@@ -90,7 +90,7 @@
         <Label Margin="1500,415,0,0" Height="30" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Х, м"/>
         <Label Margin="1490,387,0,0" Height="30" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top" Content="{Binding x_Max}" FontSize="8"/>
         <Label Margin="1490,403,0,0" Height="30" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top" Content="{Binding x_Max}" FontSize="8"/>
-        <Label Margin="1000,387,0,0" Height="30" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top" Content="{Binding x_Max}" FontSize="8"/>
-        <Label Margin="1000,403,0,0" Height="30" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top" Content="{Binding x_Max}" FontSize="8"/>
+        <Label Margin="1000,387,0,0" Height="30" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top" Content="{Binding x_Med}" FontSize="8"/>
+        <Label Margin="1000,403,0,0" Height="30" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top" Content="{Binding x_Med}" FontSize="8"/>
     </Grid>
 </Window>

@@ -1,7 +1,11 @@
 ﻿using Core.Entities;
 using GFDirectTasksSolver.ViewModelService;
+using Model.CalculateAnomalyService;
+using Model.CheckEnvironmentModelService;
+using Model.LineDrawService;
 using System;
 using System.Collections.Generic;
+using System.Windows.Media;
 
 namespace GFDirectTasksSolver
 {
@@ -139,8 +143,59 @@ namespace GFDirectTasksSolver
                 return new Command(
                     (obj) =>
                     {
-                        // Not implemented
-                        throw new NotImplementedException();
+                        if (EnvironmentParamsChecker.CheckEnvironmentParams(DepthLowerEdge, depthHigherEdge, HostRocksDensity, LedgeRocksDensity, OverhangLocation))
+                        {
+                            // Определение максимального значения Х
+                            x_Max = 2 * OverhangLocation;
+                            x_Med = x_Max / 2;
+
+                            // Определение максимального значения Z
+                            z_Max = Math.Round(DepthLowerEdge * (1 + DepthHigherEdge / (DepthLowerEdge + DepthHigherEdge)), 2);
+                            z_Med = z_Max / 2;
+
+                            // Определение частоты измерений (или более обще - дискретизации) по оси Х и расчёт значений аномалии для каждого из
+                            // значений Х с интервалом равным частоте измерений.
+                            int SamplingRate = 50;
+                            AnomalyPoints = AnomalyPointsClass.GetAnomalyPoints(
+                                SamplingRate, x_Max, DepthLowerEdge, DepthHigherEdge, HostRocksDensity, LedgeRocksDensity, OverhangLocation    
+                            );
+                            dg_Max = Math.Round(AnomalyPointsClass.GetMaxFromAnomalyList(AnomalyPoints), 2);
+                            dg_Med = dg_Max / 2;
+
+                            // Задание набора линий для модели среды
+                            EnvironmentModelLines = LineCoordsCalculator.CalculateLinesCoords(
+                                x_Max,
+                                z_Max,
+                                1000,
+                                250,
+                                new List<AbstractPoint> ()
+                                {
+                                    new AbstractPoint () {X = 0, Y = DepthLowerEdge},
+                                    new AbstractPoint () {X = OverhangLocation, Y = DepthLowerEdge},
+                                    new AbstractPoint () {X = OverhangLocation, Y = DepthHigherEdge},
+                                    new AbstractPoint () {X = x_Max , Y = DepthHigherEdge}
+                                }, 
+                                false,
+                                Brushes.Black
+                            );
+
+                            // Задание набора линий для модели аномалии
+                            AnomalyModelLines = LineCoordsCalculator.CalculateLinesCoords(
+                                x_Max,
+                                dg_Max,
+                                1000,
+                                350,
+                                AnomalyPoints,
+                                true,
+                                Brushes.Red
+                            );
+
+                            InfoPanel = "Успешно.";
+                        }
+                        else
+                        {
+                            InfoPanel = "Введены некорректные параметры моделируемой среды";
+                        }
                     }
                 );
             }
@@ -151,8 +206,8 @@ namespace GFDirectTasksSolver
         #region переменные для передачи данных по аномалии между моделью и визуальным представлением приложения 
 
         //
-        public List<AnomalyPoint> anomalyPoints;
-        public List<AnomalyPoint> AnomalyPoints
+        public List<AbstractPoint> anomalyPoints;
+        public List<AbstractPoint> AnomalyPoints
         {
             get
             {

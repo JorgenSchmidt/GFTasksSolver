@@ -10,3 +10,7 @@ D:\codes\C#\Основы ММ в недропользовании КР\GFTasksSo
 D:\codes\C#\Основы ММ в недропользовании КР\GFTasksSolver\Model\obj\Debug\net5.0\refint\Model.dll
 D:\codes\C#\Основы ММ в недропользовании КР\GFTasksSolver\Model\obj\Debug\net5.0\Model.pdb
 D:\codes\C#\Основы ММ в недропользовании КР\GFTasksSolver\Model\obj\Debug\net5.0\ref\Model.dll
+D:\codes\C#\Основы ММ в недропользовании КР\GFTasksSolver\Model\bin\Debug\net5.0\Core.dll
+D:\codes\C#\Основы ММ в недропользовании КР\GFTasksSolver\Model\bin\Debug\net5.0\PresentationCore.dll
+D:\codes\C#\Основы ММ в недропользовании КР\GFTasksSolver\Model\bin\Debug\net5.0\Core.pdb
+D:\codes\C#\Основы ММ в недропользовании КР\GFTasksSolver\Model\obj\Debug\net5.0\Model.csproj.CopyComplete
