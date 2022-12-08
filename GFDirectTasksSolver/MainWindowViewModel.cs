@@ -150,7 +150,7 @@ namespace GFDirectTasksSolver
                             x_Med = x_Max / 2;
 
                             // Определение максимального значения Z
-                            z_Max = Math.Round(DepthLowerEdge * (1 + DepthHigherEdge / (DepthLowerEdge + DepthHigherEdge)), 2);
+                            z_Max = Math.Round(DepthLowerEdge * (1 + (DepthLowerEdge/10)/(DepthLowerEdge) ), 2);
                             z_Med = z_Max / 2;
 
                             // Определение частоты измерений (или более обще - дискретизации) по оси Х и расчёт значений аномалии для каждого из
